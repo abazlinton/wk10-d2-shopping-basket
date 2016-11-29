@@ -7,6 +7,10 @@ var shoppingBasket = {
 
   add: function(item) {
     this.items.push(item);
+  },
+
+  empty: function() {
+    this.items.length = 0;
   }
 
 
