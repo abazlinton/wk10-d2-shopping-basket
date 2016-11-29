@@ -21,19 +21,27 @@ describe("Shopping Basket", function() {
   it("can be emptied", function(){
     shoppingBasket.add({name: "bread", price: 0.8});
     shoppingBasket.empty();
-    assert.equal(0, shoppingBasket.size())
+    assert.equal(0, shoppingBasket.size());
   })
 
   it("can be added to", function(){
     shoppingBasket.add({name: "bread", price: 0.8});
+    assert.equal("bread", shoppingBasket.items[0].name);
   });
 
-  it("can remove a specfied item", function(){
+  it("can remove item by name", function(){
+    shoppingBasket.add({name: "bread", price: 0.8});
+    shoppingBasket.add({name: "milk", price: 1});
     shoppingBasket.remove("bread");
+    assert.equal("milk", shoppingBasket.items[0].name);
 
-  });
+  })
 
-  it("can calculate a total");
+  it("can calculate a total", function(){
+    shoppingBasket.add({name: "bread", price: 0.8});
+    shoppingBasket.add({name: "beer", price: 4});
+    assert.equal(4.8, shoppingBasket.total());
+  })
 
 });
 
